@@ -1,3 +1,7 @@
+import resimGetir from './unsplash_api.js';
+import sakaGetir from './joke_api.js';
+import ceviriYap from './translate_api.js';
+
 class Ekran {
     constructor() {
         this.sakaGetirBtn = document.querySelector('.saka-getir-button');
@@ -5,9 +9,9 @@ class Ekran {
     }
 
     async sakaGetir() {
-        const rastgeleResim = await new UnsplashApi().randomResimGetir();
-        const rastgeleSaka = await new JokeApi().randomSakaGetir();
-        const ceviri = await new TranslateApi(rastgeleSaka).ceviriYap();
+        const rastgeleResim = await resimGetir();
+        const rastgeleSaka = await sakaGetir();
+        const ceviri = await ceviriYap(rastgeleSaka);
 
         const tumSonuclar = {
             rastgeleResim,
@@ -44,4 +48,8 @@ class Ekran {
         
         `;
     }
+}
+
+export default function uygulamayiBaslat() {
+    new Ekran();
 }

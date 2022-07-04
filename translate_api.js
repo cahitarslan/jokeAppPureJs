@@ -7,7 +7,7 @@ class TranslateApi {
             baseURL: this.baseURL,
             params: {
                 target: 'tr',
-                key: 'AIzaSyCGG-hgYs08Ts1bKSsa5IOiwBRJYfhXAWxQ',
+                key: 'AIzaSyCGG-hgYs08Ts1bKSsa5IOiwBRJYhXAWxQ',
                 q: this.aranacakCumle,
             },
         });
@@ -24,4 +24,9 @@ class TranslateApi {
             return 'Hata oluştu. Çeviri yapılamıyor..';
         }
     }
+}
+
+export default function ceviriYap(ceviriYapilacakMetin) {
+    const ceviri = new TranslateApi(ceviriYapilacakMetin).ceviriYap();
+    return ceviri;
 }

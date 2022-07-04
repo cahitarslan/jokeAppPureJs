@@ -1,14 +1,14 @@
 class UnsplashApi {
     constructor() {
         this.baseURL = 'https://api.unsplash.com';
-        this.clientID = 'Client-ID qZnKTivBVH9p1WsMogtEMGIc8KrlNKViGgSUaNHSKxA';
+        this.clientID = 'Client-ID qZnKTivBVH9p1WsMsgtE4GIc8KrlNKVtGgSUaNHSKxA';
         this.axiosNesne = axios.create({
             baseURL: this.baseURL,
             headers: {
                 Authorization: this.clientID,
             },
             params: {
-                query: 'joker joke',
+                query: 'joker',
                 count: 1,
             },
         });
@@ -24,4 +24,9 @@ class UnsplashApi {
             return 'https://miro.medium.com/max/1838/1*MIrLuyiCDpdNbnFYxYlKtA.png';
         }
     }
+}
+
+export default function resimGetir() {
+    const getirilenResim = new UnsplashApi().randomResimGetir();
+    return getirilenResim;
 }
