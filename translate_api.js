@@ -20,7 +20,8 @@ class TranslateApi {
             return ceviri.data.data.translations[0].translatedText;
         } catch (hata) {
             console.log(hata.response.data.error.message);
-            return hata.response.data.error.message;
+            // return hata.response.data.error.message;
+            return 'Hata oluştu. Çeviri yapılamıyor..';
         }
     }
 }
